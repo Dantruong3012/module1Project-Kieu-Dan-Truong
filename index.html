@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Module 1</title>
+    <link rel="stylesheet" href="stylesheet.css">
+    <!-- Font Awesome để dùng icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <h1 class="title"><i class="fa-solid fa-cart-shopping"></i> My Shopping Cart</h1>
+
+    <form action="#" class="displayForm">
+       <input type="text" id="productName" placeholder="Enter Product Name" required >
+       <input type="number" id="inputPrice" placeholder="Enter Product Price" required>
+       <input type="url" id="inputPicture" placeholder="Enter Image Address">
+       <input type="number" id="inputQuantity" placeholder="Enter Quantity" required>
+       <button id="addProduct" onclick="add(event)">
+         <i class="fa-solid fa-plus"></i> <strong>Add to cart</strong>
+       </button>
+    </form>
+
+    <div id="cart-body" class="cart-container">
+        <!-- Cart sẽ render ở đây -->
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

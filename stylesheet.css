@@ -1,0 +1,209 @@
+/* Reset nhẹ cho toàn trang */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%);
+  min-height: 100vh;
+  color: #333;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Title */
+.title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  color: #1e293b;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+.title i {
+  color: #7c3aed;
+  margin-right: 10px;
+}
+
+/* Form nhập sản phẩm */
+.displayForm {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 40px;
+  background: rgba(255,255,255,0.8);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  width: 95%;
+  max-width: 1200px;
+}
+
+.displayForm input {
+  flex: 1 1 200px;
+  padding: 10px 14px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  outline: none;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.displayForm input:focus {
+  border-color: #7c3aed;
+  box-shadow: 0 0 6px rgba(124, 58, 237, 0.4);
+}
+
+.displayForm button {
+  background: #7c3aed;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 16px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.displayForm button:hover {
+  background: #6d28d9;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.4);
+}
+
+/* Bảng giỏ hàng */
+.cart-container {
+  width: 95%;
+  max-width: 1200px;
+}
+
+.cart-container table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.1);
+  margin: auto;
+}
+
+.cart-container th,
+.cart-container td {
+  padding: 14px;
+  text-align: center;
+  font-size: 15px;
+}
+
+.cart-container thead {
+  background: #7c3aed;
+  color: #fff;
+}
+
+.cart-container tbody tr:nth-child(even) {
+  background: #f9fafb;
+}
+
+.cart-container tbody tr:hover {
+  background: #f3e8ff;
+  transition: 0.3s;
+}
+
+/* Ảnh trong bảng */
+.cart-container img {
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: zoom-in;
+}
+
+.cart-container img:hover {
+  transform: scale(2); /* Phóng to hơn rõ rệt */
+  box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+  z-index: 10;
+}
+
+/* Nút Delete */
+.cart-container button {
+  background: #ef4444;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.3s;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* Nút Delete */
+.delete-btn {
+  background: #ef4444;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: 0.3s;
+}
+.delete-btn:hover {
+  background: #dc2626;
+  transform: scale(1.05);
+}
+
+/* Nút Pay */
+.pay-btn {
+  background: #22c55e;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: 0.3s;
+  margin-left: 8px;
+}
+.pay-btn:hover {
+  background: #16a34a;
+  transform: scale(1.05);
+}
+
+
+.cart-container button:hover {
+  background: #dc2626;
+  transform: scale(1.05);
+}
+
+/* Footer tổng tiền */
+.cart-container tfoot {
+  background: #f1f5f9;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.cart-container tfoot td {
+  padding: 16px;
+  color: #111827;
+}
+
+
+
+
