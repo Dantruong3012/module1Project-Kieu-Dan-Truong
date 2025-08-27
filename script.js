@@ -25,19 +25,21 @@ class Cart {
     this.items[index].quantity = parseInt(newQuantity);
     this.displayCart();
   }
-paying(index){
+  paying(index) {
     const item = this.items[index];
-    const confirmPaying = confirm(`Are you sure, you want to pay for this item ${item.name} !`)
-    if(confirmPaying){
-        alert("You have paid successfully!");
-        this.items.splice(index, 1)
-        this.displayCart();
+    const confirmPaying = confirm(
+      `Are you sure, you want to pay for this item ${item.name} !`
+    );
+    if (confirmPaying) {
+      alert("You have paid successfully!");
+      this.items.splice(index, 1);
+      this.displayCart();
     }
-}
+  }
   displayCart() {
     const showCart = document.getElementById("cart-body");
     let total = 0;
- let cartBody = `<table class="cart-body" border="1" cellspacing="0" cellpadding="5">
+    let cartBody = `<table class="cart-body" border="1" cellspacing="0" cellpadding="5">
      <thead>
         <tr>
           <th>Product Name</th>
@@ -49,9 +51,9 @@ paying(index){
       </thead>
       <tbody>
       `;
-      this.items.forEach((item, index) => {
-    total += item.price * item.quantity;
-    cartBody += `
+    this.items.forEach((item, index) => {
+      total += item.price * item.quantity;
+      cartBody += `
       <tr>
         <td>${item.name}</td>
         <td><img src="${item.img}" width="60"/></td>
@@ -64,8 +66,8 @@ paying(index){
   </button>
       </tr>
     `;
-  });
-  cartBody += `
+    });
+    cartBody += `
       </tbody>
       <tfoot>
         <tr>
@@ -75,11 +77,11 @@ paying(index){
       </tfoot>
     </table>
   `;
-  showCart.innerHTML = cartBody;
+    showCart.innerHTML = cartBody;
   }
 }
 const cart = new Cart();
-function add() {
+function add(event) {
   event.preventDefault();
   const name = document.getElementById("productName").value;
   const price = document.getElementById("inputPrice").value;
