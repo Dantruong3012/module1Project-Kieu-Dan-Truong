@@ -12,8 +12,28 @@ class Cart {
     this.items = [];
   }
   addToCart(product) {
-    this.items.push(product);
-    this.displayCart();
+    let newProductName = product.name.trim().toLowerCase();
+     let sameName = null;
+    for (let i = 0; i<this.items.length; i ++){
+      let existingProduct = this.items[i].name.trim().toLowerCase();
+      if(newProductName === existingProduct){
+          sameName = this.items[i];
+          break;
+      }
+    } 
+    if(sameName){
+    if(product.price == sameName.price){
+      sameName.quantity = parseInt(sameName.quantity) + parseInt(product.quantity);
+    }else{
+      let totalquantity = parseInt(sameName.quantity) + parseInt(product.quantity);
+      let totalPrice = parseInt(sameName.price) + parseInt(product.price);
+      sameName.price = Math.round(totalPrice/totalquantity)
+      sameName.quantity = totalquantity;
+    }
+  }else{
+   this.items.push(product);
+  }
+this.displayCart();
   }
 
   removeFromCart(index) {
@@ -58,7 +78,10 @@ class Cart {
         <td>${item.name}</td>
         <td><img src="${item.img}" width="60"/></td>
         <td>${item.price.toLocaleString()}</td>
-        <td>${item.quantity}</td>
+       <td>
+  <input id = "changeQuantities" type="number" min="1" value="${item.quantity}" 
+    onchange="cart.updateQuantity(${index}, this.value)" />
+</td>
         <td><button onclick="cart.removeFromCart(${index})">
         <i class="fa-solid fa-trash"></i> Delete</button>
        <button class="pay-btn" onclick="cart.paying(${index})">
@@ -84,17 +107,33 @@ const cart = new Cart();
 function add(event) {
   event.preventDefault();
   const name = document.getElementById("productName").value;
-  const price = document.getElementById("inputPrice").value;
+  const price = Number(document.getElementById("inputPrice").value);
   const img = document.getElementById("inputPicture").value;
-  const quantity = document.getElementById("inputQuantity").value;
+  const quantity = Number (document.getElementById("inputQuantity").value);
 
   if (!name || !price || !quantity) {
     alert("Make sure you enter all of the necessary information!");
+    return;
   }
 
   const product = new Product(name, price, img, quantity);
   cart.addToCart(product);
+   document.getElementById("productName").value ="";
+   document.getElementById("inputPrice").value = "";
+   document.getElementById("inputPicture").value = "";
+   document.getElementById("inputQuantity").value ="";
+
 }
+
+const addProduct = document.getElementById("addProduct").addEventListener("keydown", (event) => {
+  if(event.key == "Enter"){
+    add(event);
+  }
+});
+
+
+
+
 const productDemo1 = new Product(
   "Blue t-shirt",
   500000,
